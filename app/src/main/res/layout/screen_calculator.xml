@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="?attr/background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.3"
+        >
+
+        <TextView
+            android:id="@+id/resultLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/screen_calculator.result"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/numbersLayout"
+            />
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="end"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/resultLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/numbersLayout"
+            />
+
+        <LinearLayout
+            android:id="@+id/numbersLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/buttonLayout"
+            >
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/number1Layout"
+                style="@style/TextInputLayoutStyle"
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:paddingHorizontal="16dp"
+                android:layout_weight="1"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/number1"
+                    android:inputType="number"
+                    android:maxLength="9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/screen_calculator.number1"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/number2Layout"
+                style="@style/TextInputLayoutStyle"
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="8dp"
+                android:paddingHorizontal="16dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/number2"
+                    android:inputType="number"
+                    android:maxLength="9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/screen_calculator.number2"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/buttonLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:paddingTop="16dp"
+            android:layout_marginBottom="16dp"
+            >
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/plus"
+                android:theme="@style/AppTheme.Button"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginVertical="8dp"
+                android:layout_marginHorizontal="24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/minus"
+                app:layout_constraintBottom_toTopOf="@+id/multiply"
+                android:text="@string/screen_calculator.plus"
+                android:textSize="24sp"
+                />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/minus"
+                android:theme="@style/AppTheme.Button"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginVertical="8dp"
+                android:layout_marginHorizontal="24dp"
+                app:layout_constraintStart_toEndOf="@+id/plus"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/divide"
+                android:text="@string/screen_calculator.minis"
+                android:textSize="24sp"
+                />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/multiply"
+                android:theme="@style/AppTheme.Button"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginVertical="8dp"
+                android:layout_marginHorizontal="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/divide"
+                android:text="@string/screen_calculator.multiply"
+                android:textSize="24sp"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/divide"
+                android:theme="@style/AppTheme.Button"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginVertical="8dp"
+                android:layout_marginHorizontal="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/multiply"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/screen_calculator.divide"
+                android:textSize="24sp"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
