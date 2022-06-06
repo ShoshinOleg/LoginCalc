@@ -96,6 +96,7 @@ class LoginFragment: BaseFragment(R.layout.screen_login) {
                     passwordValidator
                 )
             ) return@setOnClickListener
+            hideKeyboard()
             viewModel.login()
         }
     }
